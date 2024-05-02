@@ -5,11 +5,15 @@ import {
 } from "redux";
 import { thunk } from "redux-thunk";
 import { jobsListReducer } from "./reducers/jobsReducer";
+import { filterReducer } from "./reducers/filtersReducer";
 
 const reducer = combineReducers({
   listJobs: jobsListReducer,
+  filters: filterReducer,
 });
-const initialState = {};
+const initialState = {
+  filters: { role: "", location: "", mode: "", experience: "", basePay: "" }
+};
 const middleware = [thunk];
 export const store = createStore(
   reducer,

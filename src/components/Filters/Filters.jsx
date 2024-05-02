@@ -7,10 +7,7 @@ import "./Filters.css";
 const Filters = () => {
   return (
     <div className="filters">
-      <div>
-        <DropdownWithCategory data={Data.filterData.Roles} title="Roles" />
-      </div>
-
+      <DropdownWithCategory data={Data.filterData.Roles} title="Roles" />
       <DropdownFilter data={Data.filterData.Location} title="Location" />
       <DropdownFilter
         data={Data.filterData["Remote/on-site"]}

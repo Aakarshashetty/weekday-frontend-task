@@ -8,13 +8,11 @@ const JobCard = ({ job }) => {
     jobDetailsFromCompany,
     jobRole,
     location,
-    maxExp,
     maxJdSalary,
     minExp,
-    minJdSalary,
     salaryCurrencyCode,
   } = job;
-  console.log(location)
+
   return (
     <div className="job-card">
       <Chip label="Posted 10 days ago" variant="outlined" className="chip" />
@@ -24,16 +22,23 @@ const JobCard = ({ job }) => {
           <p>{jobRole}</p>
           <p>{location}</p>
         </div>
-        <h4>Estimated Salary: </h4>
+        <h4>
+          Estimated Salary: {maxJdSalary}
+          {salaryCurrencyCode}
+        </h4>
       </div>
-      <div className="company-details">
+      <div className="company-details-description">
         <h2>About Company:</h2>
         <b>About us:</b>
         <p className={`description ${isExpanded ? "expanded" : ""}`}>
           {jobDetailsFromCompany}
         </p>
-        <Button variant="text" onClick={() => setIsExpanded(!isExpanded)} className="button">
-          {isExpanded ? "Read less" : "Read more"} 
+        <Button
+          variant="text"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="button"
+        >
+          {isExpanded ? "Read less" : "Read more"}
         </Button>
       </div>
       <div className="job-details">

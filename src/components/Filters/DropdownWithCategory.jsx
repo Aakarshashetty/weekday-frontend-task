@@ -10,11 +10,13 @@ import {
   Select,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useDispatch } from "react-redux";
 
-const DropdownWithCategory = ({ data,title }) => {
+const DropdownWithCategory = ({ data, title }) => {
   const [availableOptions, setAvailableOptions] = useState(data);
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const newSelection = event.target.value;
@@ -35,6 +37,7 @@ const DropdownWithCategory = ({ data,title }) => {
 
     setAvailableOptions(updatedAvailableOptions);
     setSelectedOptions(newSelection);
+    dispatch({ type: "FILTER_BY_ROLE", payload: selectedOptions });
   };
 
   const handleDelete = (item) => {
